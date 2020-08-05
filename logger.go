@@ -1,7 +1,6 @@
 package middlelogger
 
 import (
-	"fmt"
 	"net/http"
 	"sync"
 	"time"
@@ -154,9 +153,7 @@ func (lh *logHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		// someone higher up the stack from catching and handling the
 		// panic.
 		if lh.panicLogger != nil {
-			fmt.Println("got panic logger")
 			if err := recover(); err != nil {
-				fmt.Println("got panic", err)
 				lh.panicLogger.LogPanic(ld, err)
 				return
 			}

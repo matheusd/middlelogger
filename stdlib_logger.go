@@ -58,5 +58,4 @@ func (l StdLibLogger) LogSlowRequest(ld LogData, i int) {
 		ld.BytesWritten,
 		i,
 	)
-
 }
